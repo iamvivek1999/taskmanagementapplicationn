@@ -1,0 +1,74 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Task Management App</title> 
+<style> body { font-family: Arial, 
+sans-serif; padding: 20px; 
+} form 
+{ max-width: 400px; marginbottom: 20px; 
+} 
+label, input, select { display: 
+block; marginbottom: 10px; 
+} button 
+{ background-color: #4CAF50; 
+color: white; 
+padding: 10px 15px; 
+border: none; 
+borderradius: 4px; 
+cursor: pointer; 
+} button:hover 
+{ background-color: #45a049; 
+} 
+#taskList { list-styletype: 
+none; padding: 0; 
+} 
+.task { border: 1px solid #ddd; 
+padding: 10px; marginbottom: 10px; borderradius: 4px; backgroundcolor: 
+#f9f9f9; 
+} 
+</style> 
+</head> 
+<body> 
+<form id="taskForm"> 
+<label for="taskName">Task Name:</label> 
+<input type="text" id="taskName" name="taskName" required> 
+<label for="taskDescription">Task Description:</label> 
+<textarea id="taskDescription" name="taskDescription" 
+rows="4"></textarea> 
+<label for="dueDate">Due Date:</label> 
+<input type="date" id="dueDate" name="dueDate" required> 
+<label for="priority">Priority:</label> 
+<select id="priority" name="priority"> 
+<option value="high">High</option> 
+<option value="medium">Medium</option> 
+<option value="low">Low</option> 
+</select> 
+<button type="button" onclick="createTask()">Create Task</button> 
+</form> 
+<h2>Task List</h2> 
+<ul id="taskList"></ul> 
+<script> function createTask() 
+{ const taskName = 
+document.getElementById(
+'taskName').value; 
+const taskDescription = 
+document.getElementById('taskDescription').value; const dueDate = 
+document.getElementById('dueDate').value; const priority = 
+document.getElementById('priority').value; 
+// Create a new task element 
+const taskElement = document.createElement('li'); taskElement.className 
+= 'task'; taskElement.innerHTML = ` 
+<strong>${taskName}</strong> 
+<p>${taskDescription}</p> 
+<p>Due Date: ${dueDate}</p> <p>Priority: 
+${priority}</p> 
+`; 
+// Add the task element to the task list 
+document.getElementById('taskList').appendChild(taskElement); 
+// Clear form fields after creating the task 
+document.getElementById('taskForm').reset(); } 
+</script> 
+</body> 
+</html> 
